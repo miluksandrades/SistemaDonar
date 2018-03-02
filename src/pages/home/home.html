@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-slides pager autoplay="4000" loop="true" speed="2000" class="slider">
+    <ion-slide *ngFor="let image of imageArray">
+      <img src="{{image.image}}"/>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50>
+        <button ion-button full> Cadastrar </button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button full> Entrar </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button full class="facebook" icon-left>
+          <ion-icon name="logo-facebook"></ion-icon> Login com o Facebook
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
