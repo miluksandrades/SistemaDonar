@@ -1,13 +1,7 @@
-<!--
-  Generated template for the PerfilPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>perfil</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Donar</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +9,32 @@
 
 <ion-content padding>
 
+  <ion-card>
+    <ion-card-content>
+      <button ion-button color="primary" (click)="doacoes()">Minhas Doações</button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <button ion-button color="primary">Meus Exames</button>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
+<ion-footer>
+  <ion-toolbar color="primary" class="footer-toolbar">
+    <button ion-button clear class="btn-footer">
+      <img src="../assets/imgs/inicio.png" width="60" height="40">
+    </button>
+    <button ion-button clear class="btn-footer">
+      <img src="../assets/imgs/hemocentros.png" width="60" height="40">
+    </button>
+    <button ion-button clear class="btn-footer">
+      <img src="../assets/imgs/campanhas.png" width="60" height="40">
+    </button>
+    <button ion-button clear class="btn-footer">
+      <img src="../assets/imgs/informacoes.png" width="60" height="40">
+    </button>
+  </ion-toolbar>
+</ion-footer>

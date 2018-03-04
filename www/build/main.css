@@ -25678,6 +25678,15 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-donation-add .footer-toolbar {
+  text-align: center;
+}
+
+page-donation-add .btn-footer {
+  text-align: center;
+  padding: 0px 10px 0px 10px;
+}
+
 page-home .facebook {
   background-color: #3b5998;
   border: none;
@@ -25707,4 +25716,13 @@ page-home .swiper-pagination-bullet {
 
 page-home .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #ff0a2f;
+}
+
+page-perfil .footer-toolbar {
+  text-align: center;
+}
+
+page-perfil .btn-footer {
+  text-align: center;
+  padding: 0px 10px 0px 10px;
 }

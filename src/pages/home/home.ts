@@ -1,3 +1,4 @@
+import { PerfilPage } from './../perfil/perfil';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -16,6 +17,10 @@ export class HomePage {
       {'image': 'assets/imgs/slide3.png'}
     ]
 
+  }
+
+  perfil(){
+    this.navCtrl.setRoot(PerfilPage);
   }
 
 }

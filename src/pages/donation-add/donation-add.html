@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Minhas Doações</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="refresh" refreshingSpinner="crescent">
+
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card>
+    <ion-card-header>
+      <h2>Minhas Doações</h2>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary" class="footer-toolbar">
+    <button ion-button clear class="btn-footer" (click)="home()">
+      <img src="../assets/imgs/inicio.png" width="60" height="40">
+    </button>
+    <button ion-button clear class="btn-footer">
+      <img src="../assets/imgs/hemocentros.png" width="60" height="40">
+    </button>
+    <button ion-button clear class="btn-footer">
+      <img src="../assets/imgs/campanhas.png" width="60" height="40">
+    </button>
+    <button ion-button clear class="btn-footer">
+      <img src="../assets/imgs/informacoes.png" width="60" height="40">
+    </button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,3 +1,5 @@
+import { PerfilPage } from './../pages/perfil/perfil';
+import { DonationAddPage } from './../pages/donation-add/donation-add';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -10,7 +12,9 @@ import { HomePage } from '../pages/home/home';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    DonationAddPage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -19,7 +23,9 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    DonationAddPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,
