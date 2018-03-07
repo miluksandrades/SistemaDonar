@@ -25728,6 +25728,12 @@ page-perfil .btn-footer {
 }
 
 page-perfil .footer-icon {
-  font-size: 30px;
+  font-size: 25px;
   color: #fff;
+}
+
+page-perfil .circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
 }

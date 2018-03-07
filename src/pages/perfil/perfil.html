@@ -11,16 +11,24 @@
 
   <ion-card>
     <ion-card-header style="text-align: center">
-      <button ion-button outline round style="width: 70px; height: 70px"></button>
-      <h2 style="font-size: 18px;">Olá, <b style="color: #ff0a2f">Fulano</b></h2>
+      <ion-row>
+        <img src="../assets/imgs/teste.jpg" class="circle"/>&nbsp;&nbsp;&nbsp;
+        <h2 style="font-size: 18px;">Olá, <b style="color: #ff0a2f">Fulano</b></h2>        
+      </ion-row>
     </ion-card-header>
+    <ion-card-content>
+      <p>Nome: Fulano Silva</p>
+      <p>Tipo Sanguíneo: <b style="color: #ff0a2f">O+</b></p>
+    </ion-card-content>
   </ion-card>
 
   <ion-card>
     <ion-card-content style="text-align: center">
       <ion-row style="text-align: justify">
-        <ion-icon name="pulse" style="font-size: 40px; color: #ff0a2f;"></ion-icon>&nbsp;&nbsp;&nbsp;
-        <h2><b style="font-size: 20px">Minhas Doações</b><br>Última Doação: 22/02/2018</h2>
+        <ion-icon name="pulse" style="font-size: 30px; color: #ff0a2f;"></ion-icon>&nbsp;&nbsp;&nbsp;
+        <h2 style="font-size: 15px">
+          <b>Minhas Doações</b>
+          <br>Última Doação: 22/02/2018</h2>
       </ion-row>
       <br>
       <button ion-button>Visualizar Doações</button>
@@ -30,12 +38,9 @@
   <ion-card>
     <ion-card-content style="text-align: center">
       <ion-row style="text-align: justify">
-        <ion-icon name="medical" style="font-size: 40px; color: #ff0a2f;"></ion-icon>&nbsp;&nbsp;&nbsp;
-        <h2>
-          <b style="font-size: 20px">Meus Exames</b>
-          <br>Último Resultado:
-          <br>HIV: Não Reagente
-          <br>Pressão: 12/8
+        <ion-icon name="medical" style="font-size: 30px; color: #ff0a2f;"></ion-icon>&nbsp;&nbsp;&nbsp;
+        <h2 style="font-size: 15px">
+          <b>Meus Exames</b>
         </h2>
       </ion-row>
       <br>
@@ -53,7 +58,7 @@
       <ion-icon name="clipboard" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">
-      <ion-icon name="megaphone" class="footer-icon"></ion-icon>
+      <ion-icon name="ios-megaphone" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">
       <ion-icon name="md-information-circle" class="footer-icon"></ion-icon>

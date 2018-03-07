@@ -1,3 +1,4 @@
+import { CadastroPage } from './../pages/cadastro/cadastro';
 import { PerfilPage } from './../pages/perfil/perfil';
 import { DonationAddPage } from './../pages/donation-add/donation-add';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,8 @@ import { HomePage } from '../pages/home/home';
     MyApp,
     HomePage,
     DonationAddPage,
-    PerfilPage
+    PerfilPage,
+    CadastroPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { HomePage } from '../pages/home/home';
     MyApp,
     HomePage,
     DonationAddPage,
-    PerfilPage
+    PerfilPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,

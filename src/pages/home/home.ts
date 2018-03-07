@@ -1,3 +1,4 @@
+import { CadastroPage } from './../cadastro/cadastro';
 import { PerfilPage } from './../perfil/perfil';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -17,6 +18,10 @@ export class HomePage {
       {'image': 'assets/imgs/slide3.png'}
     ]
 
+  }
+
+  cadastro(){
+    this.navCtrl.setRoot(CadastroPage);
   }
 
   perfil(){
