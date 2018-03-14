@@ -11,14 +11,13 @@
 
   <ion-card>
     <ion-card-header style="text-align: center">
-      <ion-row>
-        <img src="../assets/imgs/teste.jpg" class="circle"/>&nbsp;&nbsp;&nbsp;
-        <h2 style="font-size: 18px;">Olá, <b style="color: #ff0a2f">Fulano</b></h2>        
-      </ion-row>
+      <h2 style="font-size: 18px; text-align: center">Olá, <b style="color: #ff0a2f">Fulano</b></h2>
     </ion-card-header>
-    <ion-card-content>
-      <p>Nome: Fulano Silva</p>
-      <p>Tipo Sanguíneo: <b style="color: #ff0a2f">O+</b></p>
+    <ion-card-content style="text-align: center">
+      <p class="dados">Nome: Fulano Silva</p>
+      <p class="dados">Tipo Sanguíneo: <b style="color: #ff0a2f">O+</b></p>
+      <p class="dados">Data de Nascimento: 01/01/1111</p>
+      <button ion-button icon-left small><ion-icon name="create"></ion-icon>Editar Perfil</button>
     </ion-card-content>
   </ion-card>
 
@@ -31,7 +30,7 @@
           <br>Última Doação: 22/02/2018</h2>
       </ion-row>
       <br>
-      <button ion-button>Visualizar Doações</button>
+      <button ion-button small>Visualizar Doações</button>
     </ion-card-content>
   </ion-card>
 
@@ -44,7 +43,7 @@
         </h2>
       </ion-row>
       <br>
-      <button ion-button>Visualizar Exames</button>
+      <button ion-button small>Visualizar Exames</button>
     </ion-card-content>
   </ion-card>
 

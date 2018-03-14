@@ -1,12 +1,6 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadastroPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public toastCtrl: ToastController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPage');
+  permitionAdd() {
+    let toast = this.toastCtrl.create({
+      message: 'Dados Salvos com Sucesso!',
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.present();
+
+    let alert = this.alertCtrl.create({
+      title: 'Cadastro',
+      message: 'Deseja cadastrar os dados adicionais?',
+      buttons: [{
+        text: 'NÃO',
+        handler: () => {
+          this.navCtrl.setRoot(HomePage);
+        }
+      },{
+        text: 'SIM'
+      }]
+    });
+    alert.present();
   }
 
 }

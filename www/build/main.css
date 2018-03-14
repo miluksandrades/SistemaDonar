@@ -25786,3 +25786,7 @@ page-perfil .circle {
   height: 70px;
   border-radius: 100%;
 }
+
+page-perfil .dados {
+  text-align: left;
+}
