@@ -1,5 +1,5 @@
+import { RegistroPage } from './../registro/registro';
 import { CadastroPage } from './../cadastro/cadastro';
-import { PerfilPage } from './../perfil/perfil';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -24,8 +24,8 @@ export class HomePage {
     this.navCtrl.setRoot(CadastroPage);
   }
 
-  perfil(){
-    this.navCtrl.setRoot(PerfilPage);
+  registro(){
+    this.navCtrl.setRoot(RegistroPage);
   }
 
 }

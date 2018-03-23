@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { RegistroPage } from '../pages/registro/registro';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomePage } from '../pages/home/home';
     HomePage,
     DonationAddPage,
     PerfilPage,
-    CadastroPage
+    CadastroPage,
+    RegistroPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { HomePage } from '../pages/home/home';
     HomePage,
     DonationAddPage,
     PerfilPage,
-    CadastroPage
+    CadastroPage,
+    RegistroPage
   ],
   providers: [
     StatusBar,
