@@ -1,3 +1,4 @@
+import { PerfilPage } from './../perfil/perfil';
 import { RegistroPage } from './../registro/registro';
 import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
@@ -24,8 +25,8 @@ export class HomePage {
     this.navCtrl.setRoot(CadastroPage);
   }
 
-  registro(){
-    this.navCtrl.setRoot(RegistroPage);
-  }
+perfil(){
+  this.navCtrl.setRoot(PerfilPage);
+}
 
 }

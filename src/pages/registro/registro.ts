@@ -1,3 +1,5 @@
+import { FilePath } from '@ionic-native/file-path';
+import { FileChooser } from '@ionic-native/file-chooser';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
 
@@ -14,8 +16,9 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
   templateUrl: 'registro.html',
 })
 export class RegistroPage {
+  nativepath: any;
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController,public toastCtrl: ToastController, public navParams: NavParams, public loadCtrl: LoadingController) {
+  constructor(private fileChooser: FileChooser, public navCtrl: NavController,public alertCtrl: AlertController,public toastCtrl: ToastController, public navParams: NavParams, public loadCtrl: LoadingController) {
   }
 
   saveLoading(){
@@ -25,5 +28,4 @@ export class RegistroPage {
     })
     load.present();
   }
-
 }

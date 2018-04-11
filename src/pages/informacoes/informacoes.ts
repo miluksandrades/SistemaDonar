@@ -1,11 +1,10 @@
-import { InformacoesPage } from './../informacoes/informacoes';
 import { HemocentroPage } from './../hemocentro/hemocentro';
-import { DonationAddPage } from './../donation-add/donation-add';
+import { PerfilPage } from './../perfil/perfil';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the PerfilPage page.
+ * Generated class for the InformacoesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,24 +12,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-perfil',
-  templateUrl: 'perfil.html',
+  selector: 'page-informacoes',
+  templateUrl: 'informacoes.html',
 })
-export class PerfilPage {
+export class InformacoesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  doacoes(){
-    this.navCtrl.setRoot(DonationAddPage);
+  home(){
+    this.navCtrl.setRoot(PerfilPage);
   }
 
   hemocentro(){
     this.navCtrl.setRoot(HemocentroPage);
-  }
-
-  informacoes(){
-    this.navCtrl.setRoot(InformacoesPage);
   }
 
 }
