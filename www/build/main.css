@@ -25687,6 +25687,20 @@ page-donation-add .btn-footer {
   padding: 0px 10px 0px 10px;
 }
 
+page-hemocentro .footer-toolbar {
+  text-align: center;
+}
+
+page-hemocentro .btn-footer {
+  text-align: center;
+  padding: 0px 20px 0px 25px;
+}
+
+page-hemocentro .footer-icon {
+  font-size: 25px;
+  color: #fff;
+}
+
 page-home .facebook {
   background-color: #3b5998;
   border: none;
@@ -25716,6 +25730,20 @@ page-home .swiper-pagination-bullet {
 
 page-home .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #ff0a2f;
+}
+
+page-informacoes .footer-toolbar {
+  text-align: center;
+}
+
+page-informacoes .btn-footer {
+  text-align: center;
+  padding: 0px 20px 0px 25px;
+}
+
+page-informacoes .footer-icon {
+  font-size: 25px;
+  color: #fff;
 }
 
 page-perfil .footer-toolbar {

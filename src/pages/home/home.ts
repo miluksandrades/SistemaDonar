@@ -1,5 +1,4 @@
 import { PerfilPage } from './../perfil/perfil';
-import { RegistroPage } from './../registro/registro';
 import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
