@@ -13,6 +13,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RegistroPage } from '../pages/registro/registro';
+import { DoaRecPage } from '../pages/doa-rec/doa-rec';
+import { PergFreqPage } from '../pages/perg-freq/perg-freq';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RegistroPage } from '../pages/registro/registro';
     CadastroPage,
     RegistroPage,
     HemocentroPage,
-    InformacoesPage
+    InformacoesPage,
+    DoaRecPage,
+    PergFreqPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { RegistroPage } from '../pages/registro/registro';
     CadastroPage,
     RegistroPage,
     HemocentroPage,
-    InformacoesPage
+    InformacoesPage,
+    DoaRecPage,
+    PergFreqPage
   ],
   providers: [
     StatusBar,

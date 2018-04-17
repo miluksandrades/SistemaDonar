@@ -25732,6 +25732,41 @@ page-home .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #ff0a2f;
 }
 
+page-informacoes .text-center {
+  text-align: center;
+}
+
+page-informacoes .icon-sub-menu {
+  font-size: 32px;
+}
+
+page-informacoes .border-grid-sub-menu {
+  border: 1px solid #ff0a2f;
+}
+
+page-informacoes .text-justify {
+  text-align: justify;
+}
+
+page-informacoes .grid-row-border-col1 {
+  border-top: 1px solid black;
+}
+
+page-informacoes .grid-row-border {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+page-informacoes .grid-col-border-right {
+  border-right: 1px solid black;
+}
+
+page-informacoes .logo-branca {
+  width: 115px;
+  height: 25px;
+}
+
 page-informacoes .footer-toolbar {
   text-align: center;
 }
