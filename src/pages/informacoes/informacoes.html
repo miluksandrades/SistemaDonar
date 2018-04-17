@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Donar</ion-title>
+    <ion-title style="text-align: center">Donar</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,10 +10,45 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      teste
+      <h1 style="text-align: center">Informações</h1>
     </ion-card-header>
     <ion-card-content>
-      
+      <hr/>
+      <h2>
+        Quais exames serão realizados em meu sangue?
+        <br/>
+        <a (click)="inf1()"> Leia mais</a>
+      </h2>
+      <hr/>
+      <h2>
+        Porque a agulha deve ser grossa?
+        <br/>
+        <a (click)="inf2()">Leia mais</a>
+      </h2>
+      <hr/>
+      <h2>
+        É normal ter tontura após a doação?
+        <br/>
+        <a (click)="inf3()">Leia mais</a>
+      </h2>
+      <hr/>
+      <h2>
+        Como repor o sangue doado?
+        <br/>
+        <a (click)="inf4()">Leia mais</a>
+      </h2>
+      <hr/>
+      <h2>
+        Qual é o melhor sangue?
+        <br/>
+        <a (click)="inf5()">Leia mais</a>
+      </h2>
+      <hr/>
+      <h2>
+        Pode ocorrer alguma reação durante a coleta?
+        <br/>
+        <a (click)="inf6()">Leia mais</a>
+      </h2>
     </ion-card-content>
   </ion-card>
 </ion-content>
@@ -26,7 +61,7 @@
       <ion-icon name="clipboard" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">
-      <ion-icon name="ios-megaphone" class="footer-icon"></ion-icon>
+      <ion-icon name="md-flame" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">
       <ion-icon name="md-information-circle" class="footer-icon"></ion-icon>
