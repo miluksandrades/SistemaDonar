@@ -1,6 +1,8 @@
 import { PerfilPage } from './../perfil/perfil';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InformacoesPage } from '../informacoes/informacoes';
+import { HemocentroPage } from '../hemocentro/hemocentro';
 
 @IonicPage()
 @Component({
@@ -20,6 +22,14 @@ export class DonationAddPage {
 
   home(){
     this.navCtrl.setRoot(PerfilPage);
+  }
+
+  informacoes(){
+    this.navCtrl.setRoot(InformacoesPage);
+  }
+
+  hemocentro(){
+    this.navCtrl.setRoot(HemocentroPage);
   }
 
 

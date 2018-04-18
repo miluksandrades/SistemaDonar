@@ -1,9 +1,7 @@
 import { InformacoesPage } from './../informacoes/informacoes';
 import { PerfilPage } from './../perfil/perfil';
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-
-declare var google;
+import { Component, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the HemocentroPage page.

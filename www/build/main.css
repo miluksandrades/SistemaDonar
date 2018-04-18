@@ -25708,13 +25708,27 @@ page-doa-rec .grid-col-border-right {
   border-right: 1px solid black;
 }
 
+page-donation-add .text-center {
+  text-align: center;
+}
+
 page-donation-add .footer-toolbar {
   text-align: center;
 }
 
 page-donation-add .btn-footer {
   text-align: center;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 20px 0px 25px;
+}
+
+page-donation-add .footer-icon {
+  font-size: 25px;
+  color: #fff;
+}
+
+page-donation-add .logo-branca {
+  width: 115px;
+  height: 25px;
 }
 
 page-hemocentro .footer-toolbar {
@@ -25811,6 +25825,10 @@ page-informacoes .footer-icon {
   color: #fff;
 }
 
+page-perfil .text-center {
+  text-align: center;
+}
+
 page-perfil .footer-toolbar {
   text-align: center;
 }
@@ -25833,6 +25851,11 @@ page-perfil .circle {
 
 page-perfil .dados {
   text-align: left;
+}
+
+page-perfil .logo-branca {
+  width: 115px;
+  height: 25px;
 }
 
 page-perg-freq .text-center {
