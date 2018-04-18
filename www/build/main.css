@@ -25678,6 +25678,36 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-doa-rec .text-center {
+  text-align: center;
+}
+
+page-doa-rec .icon-sub-menu {
+  font-size: 32px;
+}
+
+page-doa-rec .border-grid-sub-menu {
+  border: 1px solid #ff0a2f;
+}
+
+page-doa-rec .text-justify {
+  text-align: justify;
+}
+
+page-doa-rec .grid-row-border-col1 {
+  border-top: 1px solid black;
+}
+
+page-doa-rec .grid-row-border {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+page-doa-rec .grid-col-border-right {
+  border-right: 1px solid black;
+}
+
 page-donation-add .footer-toolbar {
   text-align: center;
 }
@@ -25803,6 +25833,36 @@ page-perfil .circle {
 
 page-perfil .dados {
   text-align: left;
+}
+
+page-perg-freq .text-center {
+  text-align: center;
+}
+
+page-perg-freq .icon-sub-menu {
+  font-size: 32px;
+}
+
+page-perg-freq .border-grid-sub-menu {
+  border: 1px solid #ff0a2f;
+}
+
+page-perg-freq .text-justify {
+  text-align: justify;
+}
+
+page-perg-freq .grid-row-border-col1 {
+  border-top: 1px solid black;
+}
+
+page-perg-freq .grid-row-border {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+page-perg-freq .grid-col-border-right {
+  border-right: 1px solid black;
 }
 
 page-registro .radio {
