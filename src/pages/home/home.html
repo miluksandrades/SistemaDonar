@@ -1,17 +1,17 @@
 <ion-content>
   <ion-slides pager autoplay="4000" loop="true" speed="2000" class="slider">
     <ion-slide *ngFor="let image of imageArray">
-      <img src="{{image.image}}"/>
+      <img src="{{image.image}}" />
     </ion-slide>
   </ion-slides>
 
   <ion-grid>
     <ion-row>
       <ion-col width-50>
-        <button ion-button full (click)="cadastro()"> Cadastrar </button>
+        <button ion-button full (click)="signUp()"> Cadastrar </button>
       </ion-col>
       <ion-col width-50>
-        <button ion-button full (click)="perfil()"> Entrar </button>
+        <button ion-button full (click)="Auth()"> Entrar </button>
       </ion-col>
     </ion-row>
 

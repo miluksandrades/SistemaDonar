@@ -1,7 +1,8 @@
-import { PerfilPage } from './../perfil/perfil';
-import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+
+import { SignUpPage } from './../sign-up/sign-up';
+import { AuthPage } from './../auth/auth';
 
 @Component({
   selector: 'page-home',
@@ -17,15 +18,13 @@ export class HomePage {
       {'image': 'assets/imgs/slide2.png'},
       {'image': 'assets/imgs/slide3.png'}
     ]
-
   }
 
-  cadastro(){
-    this.navCtrl.setRoot(CadastroPage);
+  signUp(){
+    this.navCtrl.setRoot(SignUpPage);
   }
 
-perfil(){
-  this.navCtrl.setRoot(PerfilPage);
-}
-
+  Auth(){
+    this.navCtrl.setRoot(AuthPage);
+  }
 }
