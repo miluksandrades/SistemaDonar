@@ -37,9 +37,9 @@ export class RegistryPage {
     this.createForm();
 
     if(this.navParams.data.key){
-      const subsc = this.provider.get(this.navParams.data.key)
+      const subscribe = this.provider.getUser(this.navParams.data.key)
       .subscribe((c: any) => {
-        subsc.unsubscribe();
+        subscribe.unsubscribe();
 
         this.user = c;
         this.createForm();

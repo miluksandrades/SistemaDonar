@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 
-import { HomePage } from './../home/home';
-
 @IonicPage()
 @Component({
   selector: 'page-sign-up',
