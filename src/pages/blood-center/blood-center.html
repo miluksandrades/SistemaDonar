@@ -1,13 +1,75 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Donar</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="title">
+      <img src="assets/imgs/logo_branca.png">
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+  <ion-card class="place">
+    <ion-row>
+      <ion-col>
+        <h2 class="txt">
+              Locais para <br/> doações em:
+          </h2>
+      </ion-col>
+      <ion-col>
+        <h2 class="txt">
+            <p class="city">Anápolis - Goiás</p>
+          </h2>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col width-33 class="hemocentro box-left">
+        <h1>NÍVEL BAIXO</h1>
+        <img src="assets/imgs/metade.png">
+        <h2>Estoque em
+              <b class="blood">50%</b> <br/> de AB+</h2>
+      </ion-col>
+      <ion-col width-66 class="hemocentro box-right">
+        <h1>Instituto Onco-Hematológico <br/> de Anápolis</h1>
+        <button ion-button color="primary" class="btn-place" (click)="endInst()">
+          <ion-icon name="pin">
+            Obter Direções
+          </ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col width-30 class="hemocentro box-left">
+        <h1>NÍVEL CRÍTICO</h1>
+        <img src="assets/imgs/critico.png">
+        <h2>Estoque em
+            <b class="blood">25% </b> <br/> de A-</h2>
+      </ion-col>
+      <ion-col width-70 class="hemocentro box-right">
+        <h1>Hospital de Urgências <br/> de Anápolis</h1>
+        <button ion-button color="primary" class="btn-place" (click)="endHosp()">
+          <ion-icon name="pin">
+            Obter Direções
+          </ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 
 </ion-content>
-
 <ion-footer>
   <ion-toolbar color="primary" class="footer-toolbar">
     <button ion-button clear class="btn-footer" (click)="home()">
@@ -20,7 +82,7 @@
       <ion-icon name="ios-megaphone" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">
-      <ion-icon name="md-information-circle" class="footer-icon" (click)="informacoes()"></ion-icon>
+      <ion-icon name="md-information-circle" class="footer-icon" (click)="informations()"></ion-icon>
     </button>
   </ion-toolbar>
 </ion-footer>

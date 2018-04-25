@@ -1,16 +1,80 @@
 page-blood-center {
-  
-  .footer-toolbar{
-      text-align: center;
-    }
 
-    .btn-footer{
-      text-align: center;
-      padding: 0px 20px 0px 25px;
-    }
+  .title{
+    width: 130px;
+    height: 30px;
+    margin: 0px auto;
+    display: block;
+    vertical-align: middle;
+  }
 
-    .footer-icon{
-      font-size: 25px;
-      color: #fff;
-    }
+  .btn-search {
+    padding-left: 30px;
+    float: right;
+  }
+
+  .place{
+    height: 60px;
+  }
+
+  .txt{
+    margin-left: 8px;
+  }
+
+  .txt p{
+    font-size: 15px;
+    color: #ff0a2f;
+    margin: 8px auto;
+  }
+
+  .hemocentro h1 {
+    color: #ff0a2f;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .hemocentro h2{
+    font-size: 13px;
+  }
+
+  .hemocentro img {
+    width: 35px;
+    height: 65px;
+    margin: 4px 28px;
+  }
+
+  .box-left {
+    margin: 8px 0px 8px 10px;
+  }
+
+  .box-right{
+    margin-top: 7px;
+    text-align: center;
+  }
+
+  .blood {
+    color: #ff0a2f;
+    font-size: 13px;
+  }
+
+  .btn-place {
+    margin: 20px auto;
+    display: inline-block;
+    border-radius: 20px;
+    font-size: 10px;
+  }
+
+  .footer-toolbar {
+      text-align: center;
+  }
+
+  .btn-footer{
+    text-align: center;
+    padding: 0px 20px 0px 25px;
+  }
+
+  .footer-icon{
+    font-size: 25px;
+    color: #fff;
+  }
 }

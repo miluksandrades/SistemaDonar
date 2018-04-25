@@ -1,0 +1,60 @@
+<ion-content>
+  <form [formGroup]="loginForm">
+    <ion-list>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <img src="assets/img/logo.png" class="logo" />
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating> Login: </ion-label>
+            <!--<img src="assets/img/user.png" class="icon" />-->
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-item *ngIf="!form.controls.email.valid && (form.controls.email.dirty || form.controls.email.touched)" color="danger">
+          <div [hidden]="!form.controls.email.errors.required">
+            O campo é obrigatório!
+          </div>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating> Senha: </ion-label>
+            <!--<img src="assets/img/key.png" class="icon" /> -->
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-item *ngIf="!form.controls.password.valid && (form.controls.password.dirty || form.controls.password.touched)" color="danger">
+          <div [hidden]="!form.controls.password.errors.required">
+            O campo é obrigatório!
+          </div>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>
+              <a (click)="resetPassword()"> Esqueci a Senha </a>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!loginForm.valid" (click)="login()"> Entrar no Donar <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon></button>
+    </div>
+  </form>
+</ion-content>

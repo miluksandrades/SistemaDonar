@@ -6,77 +6,65 @@ declare var google;
 
 @IonicPage()
 @Component({
-	selector: 'page-maps',
-	templateUrl: 'maps.html',
+  selector: 'page-maps',
+  templateUrl: 'maps.html',
 })
 export class MapsPage {
 
+  /*directionsService = new google.maps.DirectionsService();
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  destinationPosition: string;*/
+
 	map: any;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation) {
+  constructor(private geolocation: Geolocation) {
   }
 
-	ionViewDidLoad(){
-		this.geolocation.getCurrentPosition().then((resp) => {
-			const position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+  ionViewDidLoad() {
 
-			const mapOptions = {
-				zoom: 16,
-				center: position,
-				disableDefaultUI: true,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			}
+    this.geolocation.getCurrentPosition()
+		.then((resp) => {
+      const position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
 
-			this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      const mapOptions = {
+        zoom: 16,
+        center: position,
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
 
-			const marker = new google.maps.Marker({
-				position: position,
-				map: this.map
-			});
-		}).catch((error) => {
-			console.log('Erro ao recuperar sua posição', error);
-		});
-	}
+      this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-/*	initializeMap(){
-		this.startPosition = new google.maps.LatLng(-18.9333296, 47.5166646);
+      const marker = new google.maps.Marker({
+        position: position,
+				animation: google.maps.Animation.BOUNCE, //DROP,
+        map: this.map
+        //icon: 'assets/imgs/'
+      });
 
-		const mapOptions = {
-			zoom: 18,
-			center: this.startPosition,
-			disableDefault: true
-			//mapTypeId: google.maps.MapType.Id.ROADMAP
-		}
+    }).catch((error) => {
+      console.log('Erro ao recuperar sua posição', error);
+    });
+  }
+/*
+  calculateRoute() {
+    if (this.destinationPosition && this.originPosition) {
+      const request = {
+        // Pode ser uma coordenada(LatLng), uma string ou um lugar
+        origin: this.originPosition,
+        destination: this.destinationPosition,
+        travelMode: 'DRIVING'
+      };
 
-		this.map = new google.maps.Map (document.getElementById('map'), mapOptions);
-		this.directionsDisplay.setMap(this.map);
+      this.traceRoute(this.directionsService, this.directionsDisplay, request);
+    }
+  }
 
-		const marker = new google.maps.Marker({
-			position: this.startPosition,
-			map: this.map,
-			//animation: google.maps.Animation.Drop, // BOUNCE
-			//icon: 'assets/imgs/'
-		});
-	}
-
-	calculateRoute(){
-		if(this.destinationPosition && this.originPosition){
-			const request = {
-			// Pode ser uma coordenada(LatLng), uma string ou um lugar
-			origin: this.originPosition,
-			destination: this.destinationPosition,
-			travelMode: 'DRIVING'
-    };
-
-			this.traceRoute(this.directionsService, this.directionsDisplay, request);
-		}
-	}
-
-	traceRoute(service: any, display: any, request: any){
-		service.route(request, function (result, status){
-			if(status == 'OK'){
-				display.setDirections(result);
-			}
-		});
-	}*/
+  traceRoute(service: any, display: any, request: any) {
+    service.route(request, function(result, status) {
+      if (status == 'OK') {
+        display.setDirections(result);
+      }
+    });
+  }*/
 }

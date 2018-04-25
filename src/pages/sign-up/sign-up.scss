@@ -1,7 +1,18 @@
 page-sign-up {
 
+  .body{
+    min-height: 560px;
+    max-height: 570px;
+  }
+
   .title{
     color: #ff0a2f;
     text-align: center;
+  }
+
+  .rodape{
+    position: relative;
+    top: 240px;
+    bottom: 0px;
   }
 }
