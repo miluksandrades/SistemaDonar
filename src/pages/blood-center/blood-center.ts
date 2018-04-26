@@ -28,27 +28,31 @@ export class BloodCenterPage {
   }
 
   endInst() {
-    /*let alert = this.alertCtrl.create({
+    let alert = this.alertCtrl.create({
       title: 'Instituto Onco-Hematológico de Anápolis',
       subTitle: 'Rua Washington de Carvalho, 155 - St. Central, Anápolis - GO',
-      buttons: ['Voltar']
+      buttons: ['Ok']
     })
 
-    alert.present();*/
+    alert.present();
 
-    this.navCtrl.push(MapsPage);
+    let directions = { latitude: -16.327995, longitude: -48.950493};
+
+    this.navCtrl.push(MapsPage, { directions });
   }
 
   endHosp() {
-    /*let alert = this.alertCtrl.create({
+    let alert = this.alertCtrl.create({
       title: 'Hospital de Urgências de Anápolis',
       subTitle: 'Av. Brasil Norte, 3631 - Cidade Universitária, Anápolis - GO',
-      buttons: ['Voltar']
+      buttons: ['Ok']
     })
 
-    alert.present();*/
+    alert.present();
 
-    this.navCtrl.setRoot(MapsPage);
+    let directions = { latitude: -16.299159, longitude: -48.942058};
+
+    this.navCtrl.push(MapsPage, { directions });
   }
 
 }

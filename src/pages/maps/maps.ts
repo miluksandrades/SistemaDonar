@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
-declare var google;
+declare var google: any;
 
 @IonicPage()
 @Component({
@@ -11,60 +11,72 @@ declare var google;
 })
 export class MapsPage {
 
-  /*directionsService = new google.maps.DirectionsService();
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  destinationPosition: string;*/
+  directions: any;
+  map: any;
 
-	map: any;
-
-  constructor(private geolocation: Geolocation) {
+  constructor(private navCtrl: NavController, private params: NavParams, private geolocation: Geolocation,
+    private platform: Platform) {
+    this.initPage();
   }
 
-  ionViewDidLoad() {
+  private initPage() {
+    this.directions = this.params.get('directions');
 
-    this.geolocation.getCurrentPosition()
-		.then((resp) => {
-      const position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+    this.platform.ready().then(() => {
+      this.loadMap();
+    });
+  }
 
-      const mapOptions = {
-        zoom: 16,
-        center: position,
+  private loadMap() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+
+      let mapOptions = {
+        zoom: 18,
         disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
+      };
 
       this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-      const marker = new google.maps.Marker({
-        position: position,
-				animation: google.maps.Animation.BOUNCE, //DROP,
-        map: this.map
-        //icon: 'assets/imgs/'
-      });
-
-    }).catch((error) => {
-      console.log('Erro ao recuperar sua posição', error);
+      this.calculateRoute(resp.coords.latitude, resp.coords.longitude);
+      /*this.getAddress(position, address => {
+        alert(address);
+      })*/
     });
   }
-/*
-  calculateRoute() {
-    if (this.destinationPosition && this.originPosition) {
-      const request = {
-        // Pode ser uma coordenada(LatLng), uma string ou um lugar
-        origin: this.originPosition,
-        destination: this.destinationPosition,
-        travelMode: 'DRIVING'
-      };
 
-      this.traceRoute(this.directionsService, this.directionsDisplay, request);
-    }
-  }
+  private calculateRoute(latitude: number, longitude: number) {
+    let directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(this.map);
 
-  traceRoute(service: any, display: any, request: any) {
-    service.route(request, function(result, status) {
-      if (status == 'OK') {
-        display.setDirections(result);
+    let origin = new google.maps.LatLng(latitude, longitude);
+    let destination = new google.maps.LatLng(this.directions.latitude, this.directions.longitude);
+
+    let directionsService = new google.maps.DirectionsService();
+
+    var params = {
+      // Pode ser uma coordenada(LatLng), uma string ou um lugar
+      origin: origin,
+      destination: destination,
+      travelMode: 'DRIVING'
+    };
+
+    directionsService.route(params, (result, status) => {
+      if (status === google.maps.DirectionsStatus.OK) {
+        directionsRenderer.setDirections(result);
       }
     });
-  }*/
+  }
+
+  private getAddress(position, successCallback) {
+    let geocoder = new google.maps.Geocoder;
+
+    geocoder.geocode({ location: position }, (results, status) => {
+      if (status === google.maps.GeocoderStatus.OK) {
+        if (results[0]) {
+          successCallback(results[0].formatted_address);
+        }
+      }
+    });
+  }
 }
