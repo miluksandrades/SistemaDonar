@@ -1,61 +1,293 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title> Transfusões </ion-title>
+  <ion-navbar color="primary">
+    <ion-title> Quem Doa / Quem Recebe </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
-    <ion-card-content>
-      <h2 class="text-center">Quem Doa pra quem</h2>
-      <br>
-      <ion-grid class="text-center">
-        <ion-row class="grid-row-border grid-row-border-col1">
-          <ion-col class="grid-col-border-right">Tipo</ion-col>
-          <ion-col class="grid-col-border-right">Doa</ion-col>
-          <ion-col>Recebe</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">A+</ion-col>
-          <ion-col class="grid-col-border-right">A+, AB+</ion-col>
-          <ion-col>A(+,-), O(+,-)</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">A-</ion-col>
-          <ion-col class="grid-col-border-right">A(+,-), AB(+,-)</ion-col>
-          <ion-col>A-, O-</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">B+</ion-col>
-          <ion-col class="grid-col-border-right">B+, AB+</ion-col>
-          <ion-col>B(+,-), O(+,-)</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">B-</ion-col>
-          <ion-col class="grid-col-border-right">B(+,-), AB(+,-)</ion-col>
-          <ion-col>B-, O-</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">AB+</ion-col>
-          <ion-col class="grid-col-border-right">AB+</ion-col>
-          <ion-col>Todos</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">AB-</ion-col>
-          <ion-col class="grid-col-border-right">AB(+,-)</ion-col>
-          <ion-col>A-, B-, AB-, O-</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">O+</ion-col>
-          <ion-col class="grid-col-border-right">A+, B+, AB+, O+</ion-col>
-          <ion-col>O(+,-)</ion-col>
-        </ion-row>
-        <ion-row class="grid-row-border">
-          <ion-col class="grid-col-border-right">O-</ion-col>
-          <ion-col class="grid-col-border-right">Todos</ion-col>
-          <ion-col>O-</ion-col>
-        </ion-row>
-      </ion-grid>
+    <ion-card-header class="background-row text-white text-center">
+      <b>A+</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">A+</ion-col>
+            <ion-col class="">A-</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">O+</ion-col>
+            <ion-col class="">O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">A+</ion-col>
+            <ion-col>AB+</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="background-row text-white text-center">
+      <b>A-</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">A-</ion-col>
+            <ion-col>O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">A+</ion-col>
+            <ion-col class="">A-</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">AB+</ion-col>
+            <ion-col class="">AB-</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="background-row text-white text-center">
+      <b>B+</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">B+</ion-col>
+            <ion-col class="">B-</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">O+</ion-col>
+            <ion-col class="">O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">B+</ion-col>
+            <ion-col>AB+</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="background-row text-white text-center">
+      <b>B-</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">B-</ion-col>
+            <ion-col>O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">B+</ion-col>
+            <ion-col class="">B-</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">AB+</ion-col>
+            <ion-col class="">AB-</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="background-row text-white text-center">
+      <b>AB+</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">A+</ion-col>
+            <ion-col class="">A-</ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">B+</ion-col>
+            <ion-col class="">B-</ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">AB+</ion-col>
+            <ion-col class="">AB-</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">O+</ion-col>
+            <ion-col class="">O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col>AB+</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="background-row text-white text-center">
+      <b>AB-</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">A-</ion-col>
+            <ion-col class="">B-</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">AB-</ion-col>
+            <ion-col class="">O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">AB+</ion-col>
+            <ion-col>AB-</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="background-row text-white text-center">
+      <b>O+</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">O+</ion-col>
+            <ion-col>O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">A+</ion-col>
+            <ion-col class="">B+</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">AB+</ion-col>
+            <ion-col class="">O+</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="background-row text-white text-center">
+      <b>O-</b>
+    </ion-card-header>
+    <ion-card-content class="text-size">
+      <ion-row class="grid-row-border text-center dont-border-botton">
+        <ion-col class="grid-col-border-right">
+          Recebe de
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col>O-</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          Doa Para
+          <ion-row>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">A+</ion-col>
+            <ion-col class="">A-</ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">B+</ion-col>
+            <ion-col class="">B-</ion-col>
+          </ion-row>
+          <ion-row class="grid-row-border">
+            <ion-col class="grid-col-border-right">AB+</ion-col>
+            <ion-col class="">AB-</ion-col>
+          </ion-row>
+          <ion-row class="">
+            <ion-col class="grid-col-border-right">O+</ion-col>
+            <ion-col class="">O-</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>

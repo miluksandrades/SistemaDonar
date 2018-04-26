@@ -36,7 +36,7 @@ export class BloodCenterPage {
 
     alert.present();*/
 
-    this.navCtrl.setRoot(MapsPage);
+    this.navCtrl.push(MapsPage);
   }
 
   endHosp() {

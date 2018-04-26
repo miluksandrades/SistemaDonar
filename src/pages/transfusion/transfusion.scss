@@ -3,12 +3,20 @@ page-transfusion {
     text-align: center;
   }
 
+  .text-white{
+    color: #fff;
+  }
+
+  .text-size{
+    font-size: 17px
+  }
+
   .icon-sub-menu {
     font-size: 32px;
   }
 
-  .border-grid-sub-menu {
-    border: 1px solid #ff0a2f;
+  .background-row{
+    background-color: #ff0a2f;
   }
 
   .text-justify {
@@ -16,16 +24,18 @@ page-transfusion {
   }
 
   .grid-row-border-col1 {
-    border-top: 1px solid black;
+    border-top: 1px solid grey;
   }
 
   .grid-row-border {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
   }
 
   .grid-col-border-right {
-    border-right: 1px solid black;
+    border-right: 1px solid grey;
+  }
+
+  .dont-border-botton{
+    border-bottom: 1px solid #fff
   }
 }
