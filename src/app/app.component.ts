@@ -1,3 +1,4 @@
+import { ExamsPage } from './../pages/exams/exams';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -9,7 +10,7 @@ import { BloodCenterPage } from '../pages/blood-center/blood-center';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = BloodCenterPage;
+  rootPage:any = ExamsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

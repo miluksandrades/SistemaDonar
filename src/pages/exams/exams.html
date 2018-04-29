@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="primary" class="text-center">
+    <img src="../../assets/imgs/logo_branca.png" class="logo-branca">
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header class="text-center">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/imgs/pdf.png" class="icon-pdf">
+          </ion-col>
+          <ion-col>
+            <h1>Meus Exames</h1>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      Clique no ícone para<br>baixar e visualizar os exames
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="font-weight: bold" col-6>Resultado do dia 12/02/2018</ion-col>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+          <ion-col (click)="successDownload()">
+            <img src="../../assets/imgs/download_exam.png" class="icon-download">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary" class="footer-toolbar">
+    <button ion-button clear class="btn-footer" (click)="home()">
+      <ion-icon name="home" class="footer-icon"></ion-icon>
+    </button>
+    <button ion-button clear class="btn-footer" (click)="bloodCenter()">
+      <ion-icon name="clipboard" class="footer-icon"></ion-icon>
+    </button>
+    <button ion-button clear class="btn-footer" (click)="campaign()">
+      <ion-icon name="flame" class="footer-icon"></ion-icon>
+    </button>
+    <button ion-button clear class="btn-footer" (click)="informations()">
+      <ion-icon name="md-information-circle" class="footer-icon"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>
