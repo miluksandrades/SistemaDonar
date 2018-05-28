@@ -1,3 +1,4 @@
+import { CampaignPage } from './../campaign/campaign';
 import { BloodCenterPage } from './../blood-center/blood-center';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
@@ -34,7 +35,7 @@ export class ExamsPage {
   }
 
   campaign(){
-    console.log('campanhas');
+    this.navCtrl.setRoot(CampaignPage);
   }
 
   successDownload(){

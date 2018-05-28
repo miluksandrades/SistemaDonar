@@ -1,3 +1,4 @@
+import { CampaignPage } from './../pages/campaign/campaign';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -6,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Network } from '@ionic-native/network';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -53,7 +55,8 @@ const firebaseConfig = {
     ResetPasswordPage,
     SignUpPage,
     TransfusionPage,
-    ExamsPage
+    ExamsPage,
+    CampaignPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ const firebaseConfig = {
     ResetPasswordPage,
     SignUpPage,
     TransfusionPage,
-    ExamsPage
+    ExamsPage,
+    CampaignPage
   ],
   providers: [
     StatusBar,
@@ -87,6 +91,7 @@ const firebaseConfig = {
     AuthProvider,
     UserProvider,
     AngularFireAuth,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

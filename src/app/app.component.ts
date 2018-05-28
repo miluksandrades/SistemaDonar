@@ -1,16 +1,16 @@
-import { ExamsPage } from './../pages/exams/exams';
+import { DonationPage } from './../pages/donation/donation';
+import { CampaignPage } from './../pages/campaign/campaign';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { BloodCenterPage } from '../pages/blood-center/blood-center';
+import { ExamsPage } from '../pages/exams/exams';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ExamsPage;
+  rootPage:any = DonationPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -1,3 +1,4 @@
+import { CampaignPage } from './../campaign/campaign';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
@@ -25,6 +26,10 @@ export class BloodCenterPage {
 
   campaigns() {
     this.navCtrl.setRoot(ProfilePage);
+  }
+
+  campaign(){
+    this.navCtrl.setRoot(CampaignPage);
   }
 
   endInst() {

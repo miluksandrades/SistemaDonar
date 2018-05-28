@@ -1,3 +1,4 @@
+import { CampaignPage } from './../campaign/campaign';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -31,6 +32,10 @@ export class DonationPage {
 
   bloodCenter(){
     this.navCtrl.setRoot(BloodCenterPage);
+  }
+
+  campaign(){
+    this.navCtrl.setRoot(CampaignPage);
   }
 
 }
