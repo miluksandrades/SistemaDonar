@@ -6,6 +6,7 @@ import { BloodCenterPage } from './../blood-center/blood-center';
 import { ProfilePage } from './../profile/profile';
 import { DoubtsPage } from '../doubts/doubts';
 import { TransfusionPage } from '../transfusion/transfusion';
+import { AboutPage } from '../about/about';
 
 @IonicPage()
 @Component({
@@ -23,6 +24,10 @@ export class InformationPage {
 
   transfusion(){
     this.navCtrl.push(TransfusionPage);
+  }
+
+  aboutDonar(){
+    this.navCtrl.push(AboutPage);
   }
 
   home() {

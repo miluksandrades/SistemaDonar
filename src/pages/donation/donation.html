@@ -12,9 +12,17 @@
   </ion-refresher>
   <ion-card>
     <ion-card-header>
-      <h2 class="text-center">
-        <b>Minhas Doações</b>
-      </h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="heart" class="icon-donation"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <h2 class="text-center"><b>Minhas Doações</b></h2>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-header>
   </ion-card>
 
@@ -31,7 +39,7 @@
     <button ion-button clear class="btn-footer" (click)="campaign()">
       <ion-icon name="flame" class="footer-icon"></ion-icon>
     </button>
-    <button ion-button clear class="btn-footer" (click)="informations()">
+    <button ion-button clear class="btn-footer" (click)="information()">
       <ion-icon name="md-information-circle" class="footer-icon"></ion-icon>
     </button>
   </ion-toolbar>

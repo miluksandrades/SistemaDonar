@@ -30,6 +30,7 @@ import { TransfusionPage } from '../pages/transfusion/transfusion';
 import { UserProvider } from '../providers/user/user';
 import { AuthProvider } from '../providers/auth/auth';
 import { ExamsPage } from '../pages/exams/exams';
+import { AboutPage } from '../pages/about/about';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC2aosmi9knvS8t1CFxhWmJqVUK9NMmOIM",
@@ -56,7 +57,8 @@ const firebaseConfig = {
     SignUpPage,
     TransfusionPage,
     ExamsPage,
-    CampaignPage
+    CampaignPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ const firebaseConfig = {
     SignUpPage,
     TransfusionPage,
     ExamsPage,
-    CampaignPage
+    CampaignPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
