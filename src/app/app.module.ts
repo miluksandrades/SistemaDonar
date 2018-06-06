@@ -15,6 +15,7 @@ import { MyApp } from './app.component';
 import { BloodCenterPage } from '../pages/blood-center/blood-center';
 import { DonationPage } from '../pages/donation/donation';
 import { DoubtsPage } from '../pages/doubts/doubts';
+import { ExamsPage } from '../pages/exams/exams';
 import { HomePage } from '../pages/home/home';
 import { InformationPage } from '../pages/information/information';
 import { LoginPage } from '../pages/login/login';
@@ -27,7 +28,6 @@ import { TransfusionPage } from '../pages/transfusion/transfusion';
 
 import { UserProvider } from '../providers/user/user';
 import { AuthProvider } from '../providers/auth/auth';
-import { ExamsPage } from '../pages/exams/exams';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC2aosmi9knvS8t1CFxhWmJqVUK9NMmOIM",
@@ -44,6 +44,7 @@ const firebaseConfig = {
     BloodCenterPage,
     DonationPage,
     DoubtsPage,
+    ExamsPage,
     HomePage,
     InformationPage,
     LoginPage,
@@ -52,8 +53,7 @@ const firebaseConfig = {
     RegistryPage,
     ResetPasswordPage,
     SignUpPage,
-    TransfusionPage,
-    ExamsPage
+    TransfusionPage
   ],
   imports: [
     BrowserModule,
@@ -67,6 +67,7 @@ const firebaseConfig = {
     BloodCenterPage,
     DonationPage,
     DoubtsPage,
+    ExamsPage,
     HomePage,
     InformationPage,
     LoginPage,
@@ -75,8 +76,7 @@ const firebaseConfig = {
     RegistryPage,
     ResetPasswordPage,
     SignUpPage,
-    TransfusionPage,
-    ExamsPage
+    TransfusionPage
   ],
   providers: [
     StatusBar,
