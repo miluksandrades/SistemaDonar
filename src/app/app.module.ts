@@ -1,3 +1,4 @@
+import { CampaignPage } from './../pages/campaign/campaign';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -6,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Network } from '@ionic-native/network';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -28,6 +30,11 @@ import { TransfusionPage } from '../pages/transfusion/transfusion';
 
 import { UserProvider } from '../providers/user/user';
 import { AuthProvider } from '../providers/auth/auth';
+<<<<<<< HEAD
+=======
+import { ExamsPage } from '../pages/exams/exams';
+import { AboutPage } from '../pages/about/about';
+>>>>>>> d32e7cba9b9cabaeab9ec372b6066a4e5a9e1795
 
 const firebaseConfig = {
   apiKey: "AIzaSyC2aosmi9knvS8t1CFxhWmJqVUK9NMmOIM",
@@ -53,7 +60,14 @@ const firebaseConfig = {
     RegistryPage,
     ResetPasswordPage,
     SignUpPage,
+<<<<<<< HEAD
     TransfusionPage
+=======
+    TransfusionPage,
+    ExamsPage,
+    CampaignPage,
+    AboutPage
+>>>>>>> d32e7cba9b9cabaeab9ec372b6066a4e5a9e1795
   ],
   imports: [
     BrowserModule,
@@ -76,7 +90,14 @@ const firebaseConfig = {
     RegistryPage,
     ResetPasswordPage,
     SignUpPage,
+<<<<<<< HEAD
     TransfusionPage
+=======
+    TransfusionPage,
+    ExamsPage,
+    CampaignPage,
+    AboutPage
+>>>>>>> d32e7cba9b9cabaeab9ec372b6066a4e5a9e1795
   ],
   providers: [
     StatusBar,
@@ -87,6 +108,7 @@ const firebaseConfig = {
     AuthProvider,
     UserProvider,
     AngularFireAuth,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

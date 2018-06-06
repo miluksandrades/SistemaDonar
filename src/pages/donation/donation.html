@@ -12,9 +12,20 @@
   </ion-refresher>
   <ion-card>
     <ion-card-header>
-      <h2>Minhas Doações</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="heart" class="icon-donation"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <h2 class="text-center"><b>Minhas Doações</b></h2>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-header>
   </ion-card>
+
 </ion-content>
 
 <ion-footer>
@@ -25,11 +36,11 @@
     <button ion-button clear class="btn-footer" (click)="bloodCenter()">
       <ion-icon name="clipboard" class="footer-icon"></ion-icon>
     </button>
-    <button ion-button clear class="btn-footer">
-      <ion-icon name="md-flame" class="footer-icon"></ion-icon>
+    <button ion-button clear class="btn-footer" (click)="campaign()">
+      <ion-icon name="flame" class="footer-icon"></ion-icon>
     </button>
-    <button ion-button clear class="btn-footer">
-      <ion-icon name="md-information-circle" class="footer-icon" (click)="information()"></ion-icon>
+    <button ion-button clear class="btn-footer" (click)="information()">
+      <ion-icon name="md-information-circle" class="footer-icon"></ion-icon>
     </button>
   </ion-toolbar>
 </ion-footer>

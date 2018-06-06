@@ -1,3 +1,4 @@
+import { CampaignPage } from './../campaign/campaign';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
@@ -50,6 +51,10 @@ export class ProfilePage {
 
   information(){
     this.navCtrl.setRoot(InformationPage);
+  }
+
+  campaign(){
+    this.navCtrl.setRoot(CampaignPage);
   }
 
 }

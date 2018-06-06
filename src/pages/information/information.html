@@ -35,7 +35,7 @@
           </ion-col>
           <ion-col col-1>
           </ion-col>
-          <ion-col class="border-grid-sub-menu">
+          <ion-col class="border-grid-sub-menu" (click)="aboutDonar()">
             <ion-icon class="icon-sub-menu" name="help-circle" color="primary"></ion-icon>
             <br>
             <p>Sobre o Donar</p>
@@ -54,7 +54,7 @@
     <button ion-button clear class="btn-footer" (click)="bloodCenter()">
       <ion-icon name="clipboard" class="footer-icon"></ion-icon>
     </button>
-    <button ion-button clear class="btn-footer">
+    <button ion-button clear class="btn-footer" (click)="campaign()">
       <ion-icon name="md-flame" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">

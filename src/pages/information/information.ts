@@ -1,3 +1,4 @@
+import { CampaignPage } from './../campaign/campaign';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -5,6 +6,7 @@ import { BloodCenterPage } from './../blood-center/blood-center';
 import { ProfilePage } from './../profile/profile';
 import { DoubtsPage } from '../doubts/doubts';
 import { TransfusionPage } from '../transfusion/transfusion';
+import { AboutPage } from '../about/about';
 
 @IonicPage()
 @Component({
@@ -24,12 +26,20 @@ export class InformationPage {
     this.navCtrl.push(TransfusionPage);
   }
 
+  aboutDonar(){
+    this.navCtrl.push(AboutPage);
+  }
+
   home() {
     this.navCtrl.setRoot(ProfilePage);
   }
 
   bloodCenter() {
     this.navCtrl.setRoot(BloodCenterPage);
+  }
+
+  campaign(){
+    this.navCtrl.setRoot(CampaignPage);
   }
 
 }
