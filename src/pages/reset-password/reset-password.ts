@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 
+import { AuthProvider } from "../../providers/auth/auth";
+
+import { HomePage } from './../home/home';
+
+import { Auth } from "../../models/auth";
+
 @IonicPage()
 @Component({
   selector: 'page-reset-password',
@@ -9,30 +15,31 @@ import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class ResetPasswordPage {
 
-  resetPassForm: FormGroup;
+  auth: Auth;
+  resetPass: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    //this.initialize();
+  constructor(private navCtrl: NavController, private navParams: NavParams,
+              private authProvider: AuthProvider, public fb: FormBuilder) {
+    this.initialize();
   }
 
-  /*ionViewDidLoad(){
-    this.passwordProvider.SucessEventEmitter.subscribe(
+  ionViewDidLoad(){
+    this.authProvider.sucessEventEmitter.subscribe(
       state => this.navCtrl.setRoot(HomePage)
     )
-    this.passwordProvider.ErrorEventEmitter.subscribe(
+    this.authProvider.errorEventEmitter.subscribe(
       error => console.log(error)
     )
   }
 
   private initialize(){
-    this.resetPass = new ResetPass();
-    this.resetPassForm = this.fb.group({
+    this.auth = new Auth();
+    this.resetPass = this.fb.group({
       'email': ['', Validators.required]
     });
   }
 
   reset(){
-    this.passwordProvider.resetPassword(this.resetPass);
+    this.authProvider.resetPassword(this.auth);
   }
-*/
 }

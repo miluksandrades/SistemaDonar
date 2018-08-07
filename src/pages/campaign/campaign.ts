@@ -1,10 +1,14 @@
+import { Component, NgZone } from '@angular/core';
+import { AlertController, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
+import { CampaignProvider } from "../../providers/campaign/campaign";
+
 import { BloodCenterPage } from './../blood-center/blood-center';
 import { InformationPage } from './../information/information';
 import { ProfilePage } from './../profile/profile';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SocialSharing } from '@ionic-native/social-sharing';
-import { messaging } from 'firebase';
+
+import { Campaign } from "../../models/campaign";
 
 @IonicPage()
 @Component({
@@ -13,7 +17,23 @@ import { messaging } from 'firebase';
 })
 export class CampaignPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public socialSharing: SocialSharing) {
+  campaigns: Array<Campaign>;
+
+  constructor(private alertCtrl: AlertController, private navCtrl: NavController, private campaignProvider: CampaignProvider,
+              private ngZone: NgZone, public toastCtrl: ToastController, private socialSharing: SocialSharing) {
+  }
+
+  ionViewDidLoad(){
+    this.campaignProvider.reference.on('value', (snapshot) => {
+      this.ngZone.run( () => {
+        let innerArray = new Array();
+        snapshot.forEach(elemento => {
+          let el = elemento.val();
+          innerArray.push(el);
+        })
+        this.campaigns = innerArray;
+      })
+    })
   }
 
   doRefresh(refresher) {

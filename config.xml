@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.digitalsolutions.donar" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="br.com.digitalsolutions.donar" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Donar</name>
     <description>Ligações que Salvam Vidas</description>
     <author email="" href="">Donar Team</author>
@@ -86,5 +86,14 @@
     </plugin>
     <plugin name="com.synconset.imagepicker" spec="~2.1.10" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
-    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
+    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
+    <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
+        <variable name="APP_ID" value="1284944688250703" />
+        <variable name="APP_NAME" value="Donar" />
+    </plugin>
+    <plugin name="cordova-plugin-telerik-imagepicker" spec="^2.2.2">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
+    </plugin>
+    <allow-navigation href="http://192.168.1.2:8100" />
 </widget>

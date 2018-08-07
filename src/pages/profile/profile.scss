@@ -1,34 +1,91 @@
 page-profile {
 
+  .center{
+    text-align: center;
+  }
+
+  .intro{
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .input-wrapper{
+   margin: 0px auto;
+   text-align: justify;
+ }
+
+ .card{
+   width: 100%;
+   margin: 0px;
+   box-shadow: none;
+ }
+
+ .item ion-avatar ion-img, .item ion-avatar img {
+   width: 45px;
+   height: 45px;
+   overflow: hidden;
+ }
+
+ .publicity{
+   height: 120px;
+   padding: 0px;
+ }
+
+ .content-md hr {
+   background-color: #ff0a2f;
+   height: 2px;
+ }
+
+ .item p {
+   font-size: 13px;
+   color: #000000;
+   overflow: inherit;
+   margin: 0px;
+ }
+
+ .item p:nth-child(2){
+   color: #ff0a2f;
+ }
+
+ .item p:last-child{
+   font-size: 10px;
+   color: rgba(0, 0, 0, 0.4);
+ }
+
   .text-center{
     text-align: center;
   }
-    .footer-toolbar{
-      text-align: center;
-    }
 
-    .btn-footer{
-      text-align: center;
-      padding: 0px 20px 0px 25px;
-    }
+  .footer-toolbar{
+    text-align: center;
+  }
 
-    .footer-icon{
-      font-size: 25px;
-      color: #fff;
-    }
+  .btn-footer{
+    text-align: center;
+    padding: 0px 20px 0px 25px;
+  }
 
-    .circle{
-      width: 70px;
-      height: 70px;
-      border-radius: 100%
-    }
+  .footer-icon{
+    font-size: 25px;
+    color: #fff;
+  }
 
-    .dados{
-      text-align: left
-    }
+  .circle{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%
+  }
 
-    .logo-branca{
-      width: 115px;
-      height: 25px;
-    }
+  .dados{
+    text-align: left
+  }
+
+  .logo-branca{
+    width: 115px;
+    height: 25px;
+  }
+
+  .red{
+    color: #ff0a2f;
+  }
 }

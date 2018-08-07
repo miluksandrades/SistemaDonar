@@ -1,66 +1,52 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
-import { AngularFireDatabase } from 'angularfire2/database';
-import { FirebaseApp } from 'angularfire2';
-import * as firebase from 'firebase';
+import firebase from "firebase";
+
+import { AuthProvider } from "../auth/auth";
+
+import { User } from "../../models/user";
 
 @Injectable()
 export class UserProvider {
 
-  private PATH = 'users/';
+  reference;
+  loginSucessEventEmitter: EventEmitter<any>;
+  loginErrorEventEmitter: EventEmitter<any>;
+  logoutEventEmitter: EventEmitter<any>;
 
-  constructor(private db: AngularFireDatabase, private fb: FirebaseApp) {}
+  constructor(public http: Http, private authProvider: AuthProvider) {
+    this.loginSucessEventEmitter = new EventEmitter();
+    this.loginErrorEventEmitter = new EventEmitter();
+    this.logoutEventEmitter = new EventEmitter();
 
-    getAllUsers(){
-      return this.db.list(this.PATH, ref => ref.orderByChild('name'))
-      .snapshotChanges()
-      .map(changes => {
-        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-      })
+    this.initialize();
+  }
+
+  private initialize(){
+    this.reference = firebase.database().ref('/users/' + this.authProvider.currentUser.uid);
+  }
+
+  private callbackSucessLogin(response){
+    this.loginSucessEventEmitter.emit(response.state);
+  }
+
+  private callbackErrorLogin(error){
+    this.loginErrorEventEmitter.emit({code : error.code, message : error.message, email : error.email, credencial : error.credencial});
+  }
+
+  saveUser(user: User) {
+    let id;
+    if (user.id != undefined) {
+      id = user.id;
+    } else {
+      id = this.reference.push().key;
+      user.id = id;
     }
+    this.reference.child(id).update(user)
+      .then(result => this.callbackSucessLogin(result))
+      .catch(error => this.callbackErrorLogin(error));
+  }
 
-    getUser(key: string){
-      return this.db.object(this.PATH + key).snapshotChanges()
-      .map(c => {
-        return { key: c.key, ...c.payload.val()};
-      });
-    }
-
-    save(user: any){
-      return new Promise((resolve, reject) => {
-        if(user.key){
-          this.db.list(this.PATH)
-          .update(user.key, {name: user.name, lastName: user.lastName, picture: user.picture,
-                             gender: user.gender, birth: user.birth, country: user.country,
-                             state: user.state, city: user.city, blood: user.blood, donator: user.donator})
-          .then(() => resolve())
-          .catch((e) => reject(e));
-
-          /*this.db.object(this.PATH + user.key)
-          .update(user.key, {name: user.name, lastName: user.lastName, picture: user.picture,
-                             gender: user.gender, birth: user.birth, country: user.country,
-                             state: user.state, city: user.city, blood: user.blood, donator: user.donator})
-          .then(() => resolve())
-          .catch((e) => reject(e));*/
-        }else{
-          this.db.list(this.PATH)
-          .push({name: user.name, lastName: user.lastName, picture: user.picture,
-                             gender: user.gender, birth: user.birth, country: user.country,
-                             state: user.state, city: user.city, blood: user.blood, donator: user.donator})
-          .then(() => resolve());
-        }
-      })
-    }
-
-    /*uploadAndSave(item: any){
-      let user = {$key: item.key, name: item.name, url: '', fullPath: ''};
-
-      let storageRef = this.fb.storage().ref();
-      let basePath = 'users/' + this.angula
-
-    }*/
-
-    remove(key: string){
-      return this.db.list(this.PATH).remove(key);
-    }
 }

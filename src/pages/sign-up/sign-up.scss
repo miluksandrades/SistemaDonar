@@ -1,18 +1,52 @@
 page-sign-up {
 
-  .body{
-    min-height: 560px;
-    max-height: 570px;
+  ion-content {
+    background: url("../assets/imgs/login.jpg");
+    background-size: cover;
+    background-position: center;
   }
 
-  .title{
+  .scroll-content{
+    overflow-x: unset;
+    overflow-y: unset;
+  }
+
+  .card-md {
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: calc(100% - 20px);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: none!important;
+  }
+
+  .item-md{
+    margin: 25px 0px 25px 0px;
+  }
+
+  ion-card {
+    display: inline;
+  }
+
+  .title {
     color: #ff0a2f;
     text-align: center;
   }
 
-  .rodape{
-    position: relative;
-    top: 240px;
-    bottom: 0px;
+  .save {
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 30px;
+    padding: 25px;
+    background-color: #ff0a2f;
+    color: #fff;
+  }
+
+  ion-header{
+    .toolbar {
+      .bar-button, .toolbar-title{
+        color: #ff0a2f;
+      }
+    }
   }
 }

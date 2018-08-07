@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { BloodCenter } from "../../models/blood-center";
+
 declare var google: any;
 
 @IonicPage()
@@ -11,16 +13,16 @@ declare var google: any;
 })
 export class MapsPage {
 
-  directions: any;
+  directions: BloodCenter;
   map: any;
 
-  constructor(private navCtrl: NavController, private params: NavParams, private geolocation: Geolocation,
+  constructor(private navCtrl: NavController, private navParams: NavParams, private geolocation: Geolocation,
     private platform: Platform) {
-    this.initPage();
+    this.initialize();
   }
 
-  private initPage() {
-    this.directions = this.params.get('directions');
+  private initialize() {
+    this.directions = this.navParams.get('bloodCenter');
 
     this.platform.ready().then(() => {
       this.loadMap();
@@ -39,9 +41,6 @@ export class MapsPage {
       this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
       this.calculateRoute(resp.coords.latitude, resp.coords.longitude);
-      /*this.getAddress(position, address => {
-        alert(address);
-      })*/
     });
   }
 
@@ -50,7 +49,7 @@ export class MapsPage {
     directionsRenderer.setMap(this.map);
 
     let origin = new google.maps.LatLng(latitude, longitude);
-    let destination = new google.maps.LatLng(this.directions.latitude, this.directions.longitude);
+    let destination = new google.maps.LatLng(this.directions.lat, this.directions.lng);
 
     let directionsService = new google.maps.DirectionsService();
 
@@ -68,15 +67,4 @@ export class MapsPage {
     });
   }
 
-  private getAddress(position, successCallback) {
-    let geocoder = new google.maps.Geocoder;
-
-    geocoder.geocode({ location: position }, (results, status) => {
-      if (status === google.maps.GeocoderStatus.OK) {
-        if (results[0]) {
-          successCallback(results[0].formatted_address);
-        }
-      }
-    });
-  }
 }

@@ -1,10 +1,14 @@
-import { CampaignPage } from './../campaign/campaign';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Component, NgZone } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
+import { BloodCenterProvider } from "../../providers/blood-center/blood-center";
+
+import { CampaignPage } from './../campaign/campaign';
 import { InformationPage } from './../information/information';
-import { ProfilePage } from './../profile/profile';
 import { MapsPage } from './../maps/maps';
+import { ProfilePage } from './../profile/profile';
+
+import { BloodCenter } from "../../models/blood-center";
 
 @IonicPage()
 @Component({
@@ -13,7 +17,23 @@ import { MapsPage } from './../maps/maps';
 })
 export class BloodCenterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  centers: Array<BloodCenter>;
+
+  constructor(private navCtrl: NavController, private bloodCenterProvider: BloodCenterProvider,
+              private ngZone: NgZone, public toastCtrl: ToastController) {
+  }
+
+  ionViewDidLoad(){
+    this.bloodCenterProvider.reference.on('value', (snapshot) => {
+      this.ngZone.run( () => {
+        let innerArray = new Array();
+        snapshot.forEach(elemento => {
+          let el = elemento.val();
+          innerArray.push(el);
+        })
+        this.centers = innerArray;
+      })
+    })
   }
 
   home(){
@@ -25,39 +45,11 @@ export class BloodCenterPage {
   }
 
   campaigns() {
-    this.navCtrl.setRoot(ProfilePage);
-  }
-
-  campaign(){
     this.navCtrl.setRoot(CampaignPage);
   }
 
-  endInst() {
-    let alert = this.alertCtrl.create({
-      title: 'Instituto Onco-Hematológico de Anápolis',
-      subTitle: 'Rua Washington de Carvalho, 155 - St. Central, Anápolis - GO',
-      buttons: ['Ok']
-    })
-
-    alert.present();
-
-    let directions = { latitude: -16.327995, longitude: -48.950493};
-
-    this.navCtrl.push(MapsPage, { directions });
-  }
-
-  endHosp() {
-    let alert = this.alertCtrl.create({
-      title: 'Hospital de Urgências de Anápolis',
-      subTitle: 'Av. Brasil Norte, 3631 - Cidade Universitária, Anápolis - GO',
-      buttons: ['Ok']
-    })
-
-    alert.present();
-
-    let directions = { latitude: -16.299159, longitude: -48.942058};
-
-    this.navCtrl.push(MapsPage, { directions });
+  getDirections(bloodCenter: BloodCenter){
+    this.navCtrl.push(MapsPage, { 'bloodCenter': bloodCenter});
   }
 
 }

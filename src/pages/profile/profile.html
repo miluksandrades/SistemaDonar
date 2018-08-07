@@ -4,84 +4,59 @@
   </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-  <ion-list>
-    <ion-item-sliding *ngFor="let user of users | async">
-      <ion-item>
-        <h1>{{user.name}}</h1>
-        <p>
-          {{user.lastName}}
-        </p>
-      </ion-item>
-
-      <ion-item-options side="right">
-        <button ion-button color="secondary" (click)="editUser(user)">
-          <ion-icon name="create"></ion-icon>
-        </button>
-        <button ion-button color="danger" (click)="removeUser(user.key)">
-          <ion-icon name="trash"></ion-icon>
-        </button>
-      </ion-item-options>
-
+<ion-content>
+  <ion-list [virtualScroll]="users">
+    <ion-item-sliding *virtualItem="let user">
+      <button ion-item (click)="updateUser(user)">
+        <users [user]="user"></users>
+      </button>
     </ion-item-sliding>
   </ion-list>
 
+  <ion-card>
+    <ion-card-header class="box">
+      <ion-icon name="pulse" color="primary"> Minhas Doações </ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      <p> Próxima doação a partir de:</p>
+      <p class="red"> 26/09/2018 </p>
+      <p class="red"> (46 dias) </p>
+    </ion-card-content>
 
+    <ion-item>
+      <button ion-button small (click)="donation()">
+        <ion-icon name="heart"> Visualizar Doações </ion-icon>
+      </button>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content class="center ">
+      <ion-row style="text-align: justify ">
+        <ion-icon name="medical" style="font-size: 30px; color: #ff0a2f; "></ion-icon>&nbsp;&nbsp;&nbsp;
+        <h2 style="font-size: 15px ">
+          <b>Meus Exames</b>
+        </h2>
+      </ion-row>
+      <br>
+      <button ion-button small (click)="health()">Visualizar Exames</button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
-<!--<ion-card>
-  <ion-card-header style="text-align: center">
-    <h2 style="font-size: 18px; text-align: center">Olá, <b style="color: #ff0a2f">Fulano</b></h2>
-  </ion-card-header>
-  <ion-card-content style="text-align: center">
-    <p class="dados">Nome: Fulano Silva</p>
-    <p class="dados">Tipo Sanguíneo: <b style="color: #ff0a2f">O+</b></p>
-    <p class="dados">Data de Nascimento: 01/01/1111</p>
-    <button ion-button icon-left small><ion-icon name="create"></ion-icon>Editar Perfil</button>
-  </ion-card-content>
-</ion-card>
-
-<ion-card>
-  <ion-card-content style="text-align: center">
-    <ion-row style="text-align: justify">
-      <ion-icon name="pulse" style="font-size: 30px; color: #ff0a2f;"></ion-icon>&nbsp;&nbsp;&nbsp;
-      <h2 style="font-size: 15px">
-        <b>Minhas Doações</b>
-        <br>Última Doação: 22/02/2018</h2>
-    </ion-row>
-    <br>
-    <button ion-button small (click)="doacoes()">Visualizar Doações</button>
-  </ion-card-content>
-</ion-card>
-
-<ion-card>
-  <ion-card-content style="text-align: center">
-    <ion-row style="text-align: justify">
-      <ion-icon name="medical" style="font-size: 30px; color: #ff0a2f;"></ion-icon>&nbsp;&nbsp;&nbsp;
-      <h2 style="font-size: 15px">
-        <b>Meus Exames</b>
-      </h2>
-    </ion-row>
-    <br>
-    <button ion-button small>Visualizar Exames</button>
-  </ion-card-content>
-</ion-card>
-
-</ion-content>
 <ion-footer>
-<ion-toolbar color="primary" class="footer-toolbar">
-  <button ion-button clear class="btn-footer">
-    <ion-icon name="home" class="footer-icon"></ion-icon>
+  <ion-toolbar color="primary" class="footer-toolbar">
+    <button ion-button clear class="btn-footer">
+    <ion-icon name="md-home" class="footer-icon"></ion-icon>
   </button>
-  <button ion-button clear class="btn-footer" (click)="hemocentro()">
-    <ion-icon name="clipboard" class="footer-icon"></ion-icon>
+    <button ion-button clear class="btn-footer" (click)="bloodCenter()">
+    <ion-icon name="md-map" class="footer-icon"></ion-icon>
   </button>
-  <button ion-button clear class="btn-footer" (click)="campaign()">
-    <ion-icon name="md-flame" class="footer-icon"></ion-icon>
+    <button ion-button clear class="btn-footer" (click)="campaigns()">
+    <ion-icon name="md-flame" class="footer-icon "></ion-icon>
   </button>
-  <button ion-button clear class="btn-footer">
-    <ion-icon name="md-information-circle" class="footer-icon" (click)="informacoes()"></ion-icon>
+    <button ion-button clear class="btn-footer" (click)="informations()">
+    <ion-icon name="md-information-circle" class="footer-icon " (click)="informacoes()"></ion-icon>
   </button>
-</ion-toolbar>
-</ion-footer>-->
+  </ion-toolbar>
+</ion-footer>

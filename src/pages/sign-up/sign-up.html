@@ -1,35 +1,70 @@
-<ion-content>
-  <form #form="ngForm" novalidate>
-    <ion-card class="body">
-      <ion-card-content>
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title> Cadastro </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content fullscrenn="true">
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="signUpForm">
         <ion-list>
-          <h2 class="title">Dados de Acesso</h2>
+
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>
+                  <ion-icon name="person" class="title"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="email" type="text" [(ngModel)]="auth.email" placeholder="Nome"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>
+                  <ion-icon name="user" class="title"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="email" type="text" [(ngModel)]="auth.email" placeholder="Sobrenome"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
 
           <ion-row>
             <ion-item>
-              <ion-label floating>E-Mail</ion-label>
-              <ion-input type="email" name="email"></ion-input>
+              <ion-label>
+                <ion-icon name="mail" class="title"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="email" type="email" [(ngModel)]="auth.email" placeholder="E-mail"></ion-input>
             </ion-item>
           </ion-row>
 
           <ion-row>
             <ion-item>
-              <ion-label floating>Senha</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-label>
+                <ion-icon name="unlock" class="title"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="password" type="password" [(ngModel)]="auth.password" placeholder="Senha"></ion-input>
             </ion-item>
           </ion-row>
 
           <ion-row>
             <ion-item>
-              <ion-label floating>Confirmar Senha</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-label>
+                <ion-icon name="unlock" class="title"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="confirmPassword" type="password" placeholder="Confirmação de Senha" equalPassword="password" [(ngModel)]="auth.confirmPassword"></ion-input>
             </ion-item>
           </ion-row>
         </ion-list>
-
-        <button ion-button block (click)="signUp()" class="rodape">Salvar Dados</button>
-
-      </ion-card-content>
-    </ion-card>
-  </form>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+<ion-footer no-border padding>
+  <button ion-button full type="submit" (click)="signUp()" [disabled]="signUpForm.invalid" icon-only>
+    <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+  </button>
+</ion-footer>

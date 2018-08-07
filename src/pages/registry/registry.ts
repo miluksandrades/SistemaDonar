@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ImagePicker } from '@ionic-native/image-picker';
 
-import { UserProvider } from './../../providers/user/user';
+import { UserProvider } from "../../providers/user/user";
+
+import { ProfilePage } from '../profile/profile';
+
+import { User } from "../../models/user";
 
 @IonicPage()
 @Component({
@@ -11,67 +16,102 @@ import { UserProvider } from './../../providers/user/user';
 })
 export class RegistryPage {
 
-  name: string;
-  lastName: string;
-  picture: string;
-  gender: string;
-  birth: string;
-  country: string;
-  state: string;
-  city: string;
-  blood: string;
-  donator: boolean;
-  user: any;
+  user: User;
+  registryForm: FormGroup;
+  imgPath: string;
+  picture: any;
 
-  form: FormGroup;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadCtrl: LoadingController,
-              private formBuilder: FormBuilder, private provider: UserProvider, private toast: ToastController) {
-
-    /* Maneira 1 - Passando todos os dados do usuário
-    this.user = this.navParams.data.user || {};
-    this.createForm();*/
-
-    // Maneira 2 - Passando a key do usuário
-    this.user = {};
-    this.createForm();
-
-    if(this.navParams.data.key){
-      const subscribe = this.provider.getUser(this.navParams.data.key)
-      .subscribe((c: any) => {
-        subscribe.unsubscribe();
-
-        this.user = c;
-        this.createForm();
-      })
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userProvider: UserProvider,
+    public fb: FormBuilder, public loadCtrl: LoadingController, private toast: ToastController, private imagePicker: ImagePicker) {
+    this.initialize();
   }
 
-  createForm(){
-    this.form = this.formBuilder.group({
-      key: [this.user.key],
-      name: [this.user.name, Validators.required],
-      lastName: [this.user.lastName, Validators.required],
-      gender: [this.user.gender, Validators.required],
-      birth: [this.user.birth, Validators.required],
-      country: [this.user.country, Validators.required],
-      state: [this.user.state, Validators.required],
-      city: [this.user.city, Validators.required],
-      blood: [this.user.blood, Validators.required],
-      donator: [this.user.donator, Validators.required],
+  ionViewDidLoad() {
+    // this.userProvider.loginSucessEventEmitter.subscribe(
+    //   state => this.navCtrl.setRoot(ProfilePage)
+    // )
+    // this.userProvider.loginErrorEventEmitter.subscribe(
+    //   error => console.log(error)
+    // )
+  }
+
+  private initialize() {
+    this.user = this.navParams.get('user');
+    if (!this.user) {
+      this.user = new User();
+    }
+
+    this.registryForm = this.fb.group({
+      'name': [null, Validators.required],
+      'birth': [null, Validators.required],
+      'country': [null, Validators.required],
+      'lastName': [null, Validators.required],
+      'gender': [null, Validators.required],
+      'state': [null, Validators.required],
+      'city': [null, Validators.required],
+      'donator': [null, Validators.required],
+      'blood': [null, Validators.required]
+      // 'lastDonation': ['', Validators.required]
     });
   }
 
-  onSubmit(){
-    if(this.form.valid){
-      this.provider.save(this.form.value)
-      .then(() => {
-        this.toast.create({message:'Salvo com Sucesso!', duration: 3000}).present();
-        this.navCtrl.pop();
-      }).catch((e) => {
-        this.toast.create({message: 'Erro ao Salvar!', duration: 3000}).present();
-        console.log(e);
-      })
-    }
+  registry() {
+    this.userProvider.saveUser(this.user);
+    this.loadSend();
   }
+
+  chosseImage(){
+    this.imagePicker.hasReadPermission()
+    .then(hasPermission => {
+      if(hasPermission){
+        this.uploadImage();
+      } else{
+          this.getPermission();
+    }
+  }).catch(error => {
+    console.log('Erro ao Verificar Permissão', error);
+  });
+  }
+
+  getPermission(){
+    this.imagePicker.requestReadPermission()
+    .then(hasPermission => {
+      if(hasPermission){
+        this.uploadImage();
+      } else{
+          console.error('Permissão Negada!');
+      }
+    }).catch(error => {
+      console.log('Erro ao Solicitar Permissão', error);
+    });
+  }
+
+  uploadImage(){
+    this.imagePicker.getPictures({
+      maximumImagesCount: 1,
+      outputType: 1 // Base 64
+    })
+      .then(results => {
+        if(results.lenght > 0){
+            this.imgPath = 'data: image/png;base64,' + results[0];
+            this.picture = results[0];
+        } else{
+          this.imgPath = '';
+          this.picture = null;
+        }
+      }).catch(error => {
+        console.log('Erro ao Recuperar a Imagem', error);
+      });
+  }
+
+  loadSend() {
+    let loader = this.loadCtrl.create({
+      content: "Entrando...",
+      dismissOnPageChange: true
+    });
+    loader.present
+
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
 }

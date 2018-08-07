@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { IonicPage, LoadingController, NavController, ToastController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Network } from "@ionic-native/network";
 
-import { AuthProvider } from './../../providers/auth/auth';
+import { AuthProvider } from "../../providers/auth/auth";
 
 import { ProfilePage } from '../profile/profile';
 import { ResetPasswordPage } from "../reset-password/reset-password";
+
+import { Auth } from "../../models/auth";
 
 @IonicPage()
 @Component({
@@ -15,34 +17,38 @@ import { ResetPasswordPage } from "../reset-password/reset-password";
 })
 export class LoginPage {
 
-  email: string;
-  password: string;
-  auth: any;
-
+  auth: Auth;
+  showPass: boolean;
+  type: string;
   loginForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder,
-    private authProvider: AuthProvider, public loadingCtrl: LoadingController, public network: Network,
-    public toastCtrl: ToastController) {
-      this.auth = this.navParams.data.auth || {};
-      this.createForm();
+  constructor(private navCtrl: NavController, private fb: FormBuilder, private loadingCtrl: LoadingController,
+              private authProvider: AuthProvider, private network: Network, private toastCtrl: ToastController) {
+                this.initialize();
   }
 
-  createForm(){
+  ionViewDidLoad() {
+    this.authProvider.loginSucessEventEmitter.subscribe(
+      state => this.navCtrl.setRoot(ProfilePage)
+    )
+    this.authProvider.loginErrorEventEmitter.subscribe(
+      error => console.log(error)
+    )
+  }
+
+  private initialize(){
+    this.type = 'password';
+    this.showPass = true;
+    this.auth = new Auth();
+
     this.loginForm = this.fb.group({
-      email: [this.auth.email, Validators.required],
-      password: [this.auth.password, Validators.compose([Validators.required, Validators.minLength(6)])],
+      'email': ['', Validators.required],
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
     });
   }
 
-  login() {
+  login(form) {
     let connectSubscription = this.network.type;
-    let data = this.loginForm.value;
-
-    let credentials = {
-      email: data.email,
-      password: data.password
-    };
 
     if (connectSubscription === "none") {
       this.toastCtrl.create({
@@ -52,17 +58,19 @@ export class LoginPage {
         position: 'middle'
       }).present();
     } else
-      if (connectSubscription === "wifi" || connectSubscription === "cellular") {
-        this.authProvider.loginWithEmail(credentials)
-          .then(() => this.navCtrl.setRoot(ProfilePage));
-        this.loading();
-      }
+        if(connectSubscription === "wifi" || connectSubscription === "cellular"){
+          this.authProvider.loginWithCredencial(this.auth);
+          this.loading();
+        }
+
+    this.authProvider.loginWithCredencial(this.auth);
+    this.loading();
   }
 
   loading() {
     let loader = this.loadingCtrl.create({
       spinner: 'crescent',
-      dismissOnPageChange: true
+      duration: 2000
     });
     loader.present();
   }
@@ -71,8 +79,13 @@ export class LoginPage {
     this.navCtrl.push(ResetPasswordPage);
   }
 
-  profile() {
-    this.navCtrl.setRoot(ProfilePage);
-  }
+  showPassword() {
+    this.showPass = !this.showPass;
 
+    if(this.showPass){
+      this.type = 'password';
+    } else {
+      this.type = 'text';
+    }
+  }
 }

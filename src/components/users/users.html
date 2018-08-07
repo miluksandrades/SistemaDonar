@@ -1,0 +1,18 @@
+<ion-card class="card">
+  <ion-card-header class="center">
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-left>
+          <ion-img [src]="user.picture"></ion-img>
+        </ion-avatar>
+        <p class="dados">{{user.name}} {{user.lastName}}</p>
+        <p class="dados">Tipo Sanguíneo: <b style="color: #ff0a2f">{{user.blood}}</b></p>
+        <p class="dados">Data de Nascimento: {{user.birth}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-card-header>
+  <hr/>
+  <ion-card-content class="publicity">
+    <img src="assets/imgs/netflix.png" />
+  </ion-card-content>
+</ion-card>

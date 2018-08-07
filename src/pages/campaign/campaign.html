@@ -5,28 +5,57 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="ios-refresh-outline" refreshingSpinner="crescent">
     </ion-refresher-content>
   </ion-refresher>
   <ion-card>
     <ion-card-header>
-      <h2 class="text-center"><b>Campanhas</b></h2>
+      <h2 class="text-center"><b>Campanhas Próximas a Você</b></h2>
     </ion-card-header>
   </ion-card>
+
+  <ion-list [virtualScroll]="campaigns">
+    <ion-item-sliding *virtualItem="let campaign">
+      <button ion-item>
+        <campaigns [campaign]="campaign"></campaigns>
+      </button>
+    </ion-item-sliding>
+    <!-- <ion-row>
+      <ion-col>
+        <ion-fab right bottom>
+          <button ion-fab mini color="primary">
+            <ion-icon name="md-share"></ion-icon>
+          </button>
+          <ion-fab-list side="left">
+            <button ion-fab>
+              <ion-icon name="logo-whatsapp" style="color: green"></ion-icon>
+            </button>
+            <button ion-fab>
+              <ion-icon name="logo-facebook" style="color: blue"></ion-icon>
+            </button>
+            <button ion-fab class="icon-instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </button>
+          </ion-fab-list>
+        </ion-fab>
+      </ion-col>
+    </ion-row> -->
+  </ion-list>
+
   <ion-card>
     <ion-card-header>
-      <img src="https://img.purch.com/h/1400/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA4Ni8xMjkvb3JpZ2luYWwvZ2l2aW5nLWJsb29kLmpwZw==">
+      <!-- <img src="https://img.purch.com/h/1400/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA4Ni8xMjkvb3JpZ2luYWwvZ2l2aW5nLWJsb29kLmpwZw=="> -->
     </ion-card-header>
     <ion-card-content>
-      <h2 class="text-center">
+      <!-- <h2 class="text-center">
         <b>Campanha: Povo Sadio</b>
       </h2>
       <br>
       <br>
       <br>
-      <br>
+      <br> -->
       <ion-row>
         <ion-col>
           <ion-fab right bottom>
@@ -54,13 +83,13 @@
 <ion-footer>
   <ion-toolbar color="primary" class="footer-toolbar">
     <button ion-button clear class="btn-footer" (click)="home()">
-      <ion-icon name="home" class="footer-icon"></ion-icon>
+      <ion-icon name="md-home" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer" (click)="bloodCenter()">
-      <ion-icon name="clipboard" class="footer-icon"></ion-icon>
+      <ion-icon name="md-map" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">
-      <ion-icon name="flame" class="footer-icon"></ion-icon>
+      <ion-icon name="md-flame" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer" (click)="informations()">
       <ion-icon name="md-information-circle" class="footer-icon"></ion-icon>

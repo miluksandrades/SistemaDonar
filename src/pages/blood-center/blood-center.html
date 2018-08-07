@@ -26,7 +26,15 @@
     </ion-row>
   </ion-card>
 
-  <ion-card>
+  <ion-list [virtualScroll]="centers">
+    <ion-item-sliding *virtualItem="let bloodCenter">
+      <button ion-item (click)="getDirections(bloodCenter)">
+        <blood-centers [bloodCenter]="bloodCenter"></blood-centers>
+      </button>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- <ion-card>
     <ion-row>
       <ion-col width-33 class="hemocentro box-left">
         <h1>NÍVEL BAIXO</h1>
@@ -62,19 +70,20 @@
         </button>
       </ion-col>
     </ion-row>
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>
+
 <ion-footer>
   <ion-toolbar color="primary" class="footer-toolbar">
     <button ion-button clear class="btn-footer" (click)="home()">
-      <ion-icon name="home" class="footer-icon"></ion-icon>
+      <ion-icon name="md-home" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer">
-      <ion-icon name="clipboard" class="footer-icon"></ion-icon>
+      <ion-icon name="md-map" class="footer-icon"></ion-icon>
     </button>
-    <button ion-button clear class="btn-footer" (click)="campaign()">
-      <ion-icon name="ios-megaphone" class="footer-icon"></ion-icon>
+    <button ion-button clear class="btn-footer" (click)="campaigns()">
+      <ion-icon name="md-flame" class="footer-icon"></ion-icon>
     </button>
     <button ion-button clear class="btn-footer" (click)="informations()">
       <ion-icon name="md-information-circle" class="footer-icon"></ion-icon>

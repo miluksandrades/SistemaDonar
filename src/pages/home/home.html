@@ -4,23 +4,25 @@
       <img src="{{image.image}}" />
     </ion-slide>
   </ion-slides>
+</ion-content>
 
+<ion-footer no-border>
   <ion-grid>
     <ion-row>
-      <ion-col width-50>
+      <ion-col>
         <button ion-button full (click)="signUp()"> Cadastrar </button>
       </ion-col>
-      <ion-col width-50>
-        <button ion-button full (click)="Auth()"> Entrar </button>
+      <ion-col>
+        <button ion-button full (click)="login()"> Entrar </button>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <button ion-button full class="facebook" icon-left>
-          <ion-icon name="logo-facebook"></ion-icon> Login com o Facebook
-        </button>
+        <button ion-button full class="facebook" color="facebook" icon-left (click)="fbLogin()">
+            <ion-icon name="logo-facebook"></ion-icon> Login com o Facebook
+          </button>
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
+</ion-footer>

@@ -1,12 +1,12 @@
-import { CampaignPage } from './../campaign/campaign';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { AboutPage } from './../about/about';
 import { BloodCenterPage } from './../blood-center/blood-center';
+import { CampaignPage } from './../campaign/campaign';
 import { ProfilePage } from './../profile/profile';
-import { DoubtsPage } from '../doubts/doubts';
 import { TransfusionPage } from '../transfusion/transfusion';
-import { AboutPage } from '../about/about';
+import { QuestionsPage } from '../questions/questions';
 
 @IonicPage()
 @Component({
@@ -18,16 +18,16 @@ export class InformationPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  about(){
+    this.navCtrl.push(AboutPage);
+  }
+
   doubts(){
-    this.navCtrl.push(DoubtsPage);
+    this.navCtrl.push(QuestionsPage);
   }
 
   transfusion(){
     this.navCtrl.push(TransfusionPage);
-  }
-
-  aboutDonar(){
-    this.navCtrl.push(AboutPage);
   }
 
   home() {
@@ -38,7 +38,7 @@ export class InformationPage {
     this.navCtrl.setRoot(BloodCenterPage);
   }
 
-  campaign(){
+  campaigns(){
     this.navCtrl.setRoot(CampaignPage);
   }
 

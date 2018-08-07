@@ -1,16 +1,10 @@
-import { CampaignPage } from './../campaign/campaign';
-import { BloodCenterPage } from './../blood-center/blood-center';
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { InformationPage } from '../information/information';
 
-/**
- * Generated class for the ExamsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { BloodCenterPage } from './../blood-center/blood-center';
+import { CampaignPage } from './../campaign/campaign';
+import { HomePage } from './../home/home';
+import { InformationPage } from '../information/information';
 
 @IonicPage()
 @Component({
@@ -34,7 +28,7 @@ export class ExamsPage {
     this.navCtrl.setRoot(BloodCenterPage);
   }
 
-  campaign(){
+  campaigns(){
     this.navCtrl.setRoot(CampaignPage);
   }
 

@@ -1,9 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
-import { AuthProvider } from './../../providers/auth/auth';
+import { AuthProvider } from "../../providers/auth/auth";
 
 import { RegistryPage } from '../registry/registry';
+
+import { Auth } from "../../models/auth";
 
 @IonicPage()
 @Component({
@@ -12,41 +15,49 @@ import { RegistryPage } from '../registry/registry';
 })
 export class SignUpPage {
 
-  //user: User = new User();
-
-  //@ViewChild('form') form: NgForm;
+  auth: Auth;
+  signUpForm: FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public alertCtrl: AlertController, public toastCtrl: ToastController, private authProvider: AuthProvider) {
+              private fb: FormBuilder, private authProvider: AuthProvider, public toastCtrl: ToastController) {
+                this.initialize();
   }
-/*
-  signUp() {
-    if(this.form.form.valid){
 
-      //let toast = this.toastCtrl.create({duration: 3000, position: 'bottom'});
+  ionViewDidLoad(){
+    this.authProvider.loginSucessEventEmitter.subscribe(
+      state => this.navCtrl.setRoot(RegistryPage)
+    )
+    this.authProvider.loginErrorEventEmitter.subscribe(
+      error => this.toast(error)
+    )
+  }
 
-      this.authProvider.createUser(this.user)
-      .then((user: any) => {
+  private initialize(){
+    this.auth = new Auth();
+    this.signUpForm = this.fb.group({
+      'email': ['', Validators.compose([Validators.required, Validators.email])],
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      'confirmPassword': ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+    });
+  }
 
-        user.sendEmailVerification(); //Confirmar e-mail do usuário
+  private signUp(form){
+    this.authProvider.signUp(this.auth);
+  }
 
-        //toast.setMessage('Usuário criado com Sucesso!');
-        //toast.present();
+  private toast(error) {
+    let toast = this.toastCtrl.create({ showCloseButton: true, closeButtonText: 'Ok', position: 'middle' });
 
-        this.navCtrl.setRoot(RegistryPage);
+      if (error.code == 'auth/email-already-in-use') {
+        toast.setMessage('O e-mail já está em uso!');
+      } else if (error.code == 'auth/invalid-email') {
+        toast.setMessage('O e-mail digitado não é valido!');
+      } else if (error.code == 'auth/operation-not-allowed') {
+        toast.setMessage('Não está habilitado criar usuário!');
+      } else if (error.code == 'auth/weak-password') {
+        toast.setMessage('A senha digitada é muito fraca!');
+      }
+      toast.present();
+  }
 
-      }).catch((error: any) => {
-        if(error.code == 'auth/email-already-in-use'){
-          toast.setMessage('O e-mail já está em uso!');
-        } else if (error.code == 'auth/invalid-email'){
-          toast.setMessage('O e-mail digitado não é valido!');
-        } else if (error.code == 'auth/operation-not-allowed'){
-          toast.setMessage('Não está habilitado criar usuário!');
-        } else if (error.code == 'auth/weak-password'){
-          toast.setMessage('A senha digitada é muito fraca!');
-        }
-        toast.present();
-      });
-    }
-  }*/
 }
